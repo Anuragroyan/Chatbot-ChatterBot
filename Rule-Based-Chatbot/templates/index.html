@@ -1,56 +1,60 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="/static/style.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    </head>
-    <body>
-        <div class="row">
-            <div class="col-md-10 mr-auto ml-auto">
-                <h1>Dungeon_master ChatBot</h1>
-                <form>
-                    <div id="chatbot">
-                        <div class="col-md-8 ml-auto mr-auto">
-                            <p class="botText"><h1> I'm Dungeon_master.</h1></p>
-                        </div> 
-                    </div>
-                    <div id="userInpuy" class="row">
-                        <div class="col-md-10">
-                            <input id="text" type="text" name="msg" placeholder="Message" class="form-control">
-                            <button type="submit" id="send" class="btn btn-warning">Send</button>
-                        </div>
-                    </div>
-                </form>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-md-10 mr-auto ml-auto">
+    <h1>Dungeon_master ChatBot</h1>
+    <form>
+        <div id="chatbox">
+            <div class="col-md-8 ml-auto mr-auto">
+                <p class="botText"><span>Hi! I'm Dungeon_master.</span></p>
             </div>
         </div>
-        <script>
-              $(document).ready(function() {
-                  $("form").on("submit", function(event) {
-                      var rawtext = $("#text").val();
-                      var userHtml = '<p class="userText"><span>' + rawtext + "</span></p>";
-                      $("#text").val("");
-                      $("#chatbox").append(userHtml);
-                      document.getElementById("userInput").scrollIntoView({
-                          block:"start",
-                          behavior:"smooth",
-                      });
-                      $.ajax({
-                          data: {
-                              msg: rawtext,
-                          },
-                          type: "POST",
-                          url: "/get",
-                      }).done(function(data){
-                          var botHtml = '<p class="botText"><span>' + data + "</span></p>";
-                          $("#chatbox").append($.parseHTML(botHtml));
-                          document.getElementById("userInput").scrollIntoView({
-                              block:"start",
-                              behavior:"smooth",
-                          });
-                      });
-                    event.preventDefault();  
-                  });
-              });   
-        </script>
-    </body>
+        <div id="userInput" class="row">
+            <div class="col-md-10">
+                <input id="text" type="text" name="msg" placeholder="Message" class="form-control">
+                <button type="submit" id="send" class="btn btn-warning">Send</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $("form").on("submit", function(event) {
+            var rawText = $("#text").val();
+            var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
+            $("#text").val("");
+            $("#chatbox").append(userHtml);
+            document.getElementById("userInput").scrollIntoView({
+                block: "start",
+                behavior: "smooth",
+            });
+            $.ajax({
+                data: {
+                    msg: rawText,
+                },
+                type: "POST",
+                url: "/get",
+            }).done(function(data) {
+                var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+                $("#chatbox").append($.parseHTML(botHtml));
+                document.getElementById("userInput").scrollIntoView({
+                    block: "start",
+                    behavior: "smooth",
+                });
+            });
+            event.preventDefault();
+        });
+    });
+</script>
+</body>
+
 </html>
