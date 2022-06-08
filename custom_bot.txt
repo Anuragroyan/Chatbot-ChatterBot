@@ -1,0 +1,12 @@
+trainer = ChatterBotCorpusTrainer(my_bot)
+ trainer.train(
+   "./conversations.yml"
+)
+
+save all dependencies in requirement.txt in python
+
+pip freeze > requirements.txt 
+
+cmd for instal chatterbot
+
+pip install chatterbot==1.0.2
