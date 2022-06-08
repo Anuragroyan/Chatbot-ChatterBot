@@ -9,8 +9,7 @@ chatbot = ChatBot('Dungeon_master')
 trainer = ChatterBotCorpusTrainer(chatbot)
 
 trainer.train("chatterbot.corpus.english.greetings",
-              "chatterbot.corpus.english.conversations",
-              "./Data/conversation.yml")
+              "chatterbot.corpus.english.conversations")
 
 @app.route("/")
 
