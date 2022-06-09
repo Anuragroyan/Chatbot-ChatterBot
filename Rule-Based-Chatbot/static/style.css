@@ -42,13 +42,12 @@ h3 {
 .col-md-10{flex:0 0 83.333333%;max-width:83.333333%}
 
 .form-control {
-    background: no-repeat bottom,50% calc(100% - 1px);
-    background-image: none, none;
+    background: no-repeat bottom,50%;
+    background-image: none,none;
     background-size: auto, auto;
     background-size: 0 100%,100% 100%;
     border: 0;
     height: 36px;
-    transition: background 0s ease-out;
     padding-left: 0;
     padding-right: 0;
     border-radius: 0;
@@ -92,7 +91,7 @@ h3 {
     box-shadow: 0 14px 26px -12px rgba(255,152,0,.42),0 4px 23px 0 rgba(0,0,0,.12),0 8px 10px -5px rgba(255,152,0,.2);
 }
 
-button, input, optgroup, select, textarea {
+button, input, textarea {
     margin: 0;
     font-family: inherit;
     font-size: inherit;
@@ -100,7 +99,7 @@ button, input, optgroup, select, textarea {
     overflow:visible;
 }
 #chatbox {
-    background-color: cyan;
+    background-color:olivedrab;
     margin-left: auto;
     margin-right: auto;
     width: 80%;
@@ -112,7 +111,9 @@ button, input, optgroup, select, textarea {
     margin-left: auto;
     margin-right: auto;
     width: 40%;
-    margin-top: 60px;
+    margin-top: 75px;
+    min-height: 70px;
+    background-color:#3330314a;
 }
 
 #textInput {
@@ -157,11 +158,4 @@ button, input, optgroup, select, textarea {
     background-color: #ef5350;
     padding: 10px;
     border-radius: 2px;
-}
-
-#tidbit {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 300px;
 }
